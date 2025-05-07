@@ -414,3 +414,14 @@ span.highlight {
     /* For left-aligned list items on mobile, this should still work */
   }
 }
+.embedded-certificate-image {
+    width: 100%;
+    max-width: 700px; /* Adjust this value as needed */
+    height: auto;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 5px; /* Optional: adds space below the image if there's a link */
+    display: block; /* Ensures it behaves as a block, helps with centering if needed */
+    margin-left: auto; /* To center the image if its max-width is less than container */
+    margin-right: auto; /* To center the image */
+}
