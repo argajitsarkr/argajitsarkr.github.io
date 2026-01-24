@@ -225,6 +225,7 @@ section {
 #research .pub-details h3 {
   margin-top: 0; /* Remove top margin for publication titles */
   margin-bottom: 0.5em;
+  text-align: justify;
 }
 #research .pub-details h3 a {
     color: #111; /* Darker color for publication titles */
