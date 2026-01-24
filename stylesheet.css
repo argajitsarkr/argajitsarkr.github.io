@@ -166,8 +166,8 @@ header .profile-image-container {
 }
 
 header .profile-image-container img {
-  max-width: 250px; /* Control max image size */
-  width: 100%; /* Make image responsive within its container */
+  max-width: 330px; /* Control max image size */
+  width: 180%; /* Make image responsive within its container */
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer, more modern shadow */
@@ -207,7 +207,7 @@ section {
   flex: 1;
   padding-right: 25px; /* More space next to image */
   max-width: 380px;
-  min-width: 330px;
+  min-width: 300px;
 }
 
 #research .pub-image img {
