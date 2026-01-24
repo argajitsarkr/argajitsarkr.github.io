@@ -204,17 +204,11 @@ section {
 }
 
 #research .pub-image {
-  flex: 1;
-  padding-right: 25px; /* More space next to image */
-  max-width: 380px;
-  min-width: 300px;
-}
-
-#research .pub-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px; /* Softer radius */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  /* "0 0 320px" means: Don't grow, don't shrink, stay exactly 320px */
+  flex: 0 0 320px; 
+  width: 320px;    
+  padding-right: 25px;
+  /* Removed min-width and max-width to stop the wobbling */
 }
 
 #research .pub-details {
