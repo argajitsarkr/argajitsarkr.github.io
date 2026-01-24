@@ -232,6 +232,7 @@ section {
 #research .pub-details p {
   margin-bottom: 0.5em; /* Tighter spacing within publication details */
   font-size: 0.95em; /* Slightly smaller text for details */
+  text-align: justify;
 }
 #research .pub-details p em { /* Journal/Year line */
     color: #555;
