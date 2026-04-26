@@ -1,4 +1,4 @@
-# CLAUDE.md — Project Guide for argajitsarkr.github.io
+# CLAUDE.md - Project Guide for argajitsarkr.github.io
 
 > **READ THIS BEFORE MAKING ANY CHANGES.**
 > Update this file after every session with a summary of changes made and any new lessons learned.
@@ -9,7 +9,7 @@
 
 **Site:** [argajitsarkr.github.io](https://argajitsarkr.github.io)
 **Type:** Personal academic portfolio (GitHub Pages, static HTML/CSS/JS)
-**Owner:** Argajit Sarkar — Doctoral Scholar, Tripura University
+**Owner:** Argajit Sarkar - Doctoral Scholar, Tripura University
 
 ---
 
@@ -19,12 +19,12 @@
 |---|---|
 | **Git root (repo root)** | `C:\Users\Arghya\` |
 | **Live site files** | `C:\Users\Arghya\*.html`, `images/`, `data/`, `fonts/`, `certificates/` |
-| **Local working copy (Downloads)** | `C:\Users\Arghya\Downloads\argajitsarkr.github today\` — **NOT the repo root** |
+| **Local working copy (Downloads)** | `C:\Users\Arghya\Downloads\argajitsarkr.github today\` - **NOT the repo root** |
 | **GitHub remote** | `https://github.com/argajitsarkr/argajitsarkr.github.io.git` |
 
 > **WARNING:** The git repo is rooted at `C:\Users\Arghya\`, NOT inside the Downloads folder.
 > Always run git commands from `C:\Users\Arghya\` and edit files there.
-> The `Downloads/argajitsarkr.github today/` folder is just a local working copy — **never commit from inside it**.
+> The `Downloads/argajitsarkr.github today/` folder is just a local working copy - **never commit from inside it**.
 
 ---
 
@@ -70,15 +70,15 @@ C:\Users\Arghya\               ← GIT ROOT / LIVE SITE FILES
 
 ## Publications & Citations (research.html + index.html)
 
-Citations appear in **two places** — always update both files:
-- `research.html` — uses `<span class="pub-card__citation">Cited by N</span>`
-- `index.html` — uses `<p class="featured-pub__citation">Cited by N</p>`
+Citations appear in **two places** - always update both files:
+- `research.html` - uses `<span class="pub-card__citation">Cited by N</span>`
+- `index.html` - uses `<p class="featured-pub__citation">Cited by N</p>`
 
 ### Current Citation Counts (last updated: 2026-04-05)
 
 | Paper | research.html | index.html |
 |---|---|---|
-| Quercetin as additive adjuvant (Vibrio cholerae) | Cited by 1 | — (no citation shown) |
+| Quercetin as additive adjuvant (Vibrio cholerae) | Cited by 1 | - (no citation shown) |
 | Biofilm-mediated bioremediation of xenobiotics and heavy metals | Cited by 21 | Cited by 21 |
 | TGF-beta plays dual roles in immunity and pathogenesis in leishmaniasis | Cited by 9 | Cited by 9 |
 
@@ -110,11 +110,11 @@ Full favicon set is in place (added 2026-04-05). All HTML files include:
    git push origin main
    ```
 4. Update the changelog and citation table in this file
-5. GitHub Pages deploys within 2–5 minutes — hard refresh with `Ctrl+Shift+R` to verify
+5. GitHub Pages deploys within 2–5 minutes - hard refresh with `Ctrl+Shift+R` to verify
 
 ---
 
-## ❌ MISTAKES LOG — What NOT To Do
+## ❌ MISTAKES LOG - What NOT To Do
 
 ### 1. NEVER run git commands from the Downloads subfolder
 - **What happened:** Ran `cd "C:/Users/Arghya/Downloads/argajitsarkr.github today"` and committed from there
@@ -125,10 +125,10 @@ Full favicon set is in place (added 2026-04-05). All HTML files include:
 ### 2. NEVER edit files in the Downloads copy and expect them to affect the live site
 - **What happened:** Edited `C:\Users\Arghya\Downloads\argajitsarkr.github today\index.html` instead of `C:\Users\Arghya\index.html`
 - **Result:** Citation updates were applied to the wrong copy; live site stayed unchanged
-- **Rule:** Always edit files at `C:\Users\Arghya\*.html` — that's what GitHub Pages serves
+- **Rule:** Always edit files at `C:\Users\Arghya\*.html` - that's what GitHub Pages serves
 
 ### 3. Always update BOTH index.html AND research.html for citation changes
-- Citations appear on both pages — missing one leaves the site inconsistent
+- Citations appear on both pages - missing one leaves the site inconsistent
 
 ### 4. NEVER use `git add .` or `git add -A` from the repo root
 - The git root is the home directory (`C:\Users\Arghya\`), which contains personal files, Downloads, AppData, etc.
@@ -137,14 +137,19 @@ Full favicon set is in place (added 2026-04-05). All HTML files include:
 ### 5. Before pushing, always pull first if remote may have newer commits
 - Use `git pull --rebase origin main` before pushing to avoid rejection
 
+### 6. NEVER use the em dash character "—" in any site file
+- **Rule:** Always use a plain hyphen `-` instead of the em dash `—` in all HTML, CSS, JS, and CLAUDE.md files
+- **Applies to:** titles, subtitles, labels, comments, descriptions — everywhere in the site files
+
 ---
 
 ## Changelog
 
 | Date | Changes |
 |---|---|
+| 2026-04-26 | Replaced all em dashes (-) with hyphens (-) across all site files; added rule #6 to CLAUDE.md |
 | 2026-04-05 | Removed wrongly committed `Downloads/argajitsarkr.github today/` subfolder from repo |
-| 2026-04-05 | Updated citation counts: Quercetin (→1), Biofilm (→21), TGF-beta (→9) in correct files |
+| 2026-04-05 | Updated citation counts: Quercetin (->1), Biofilm (->21), TGF-beta (->9) in correct files |
 | 2026-04-05 | Added full favicon set to all HTML pages + site.webmanifest |
 | 2026-04-04 | Updated CV to March 2026 version (`data/Argajit CV 2026.pdf`) |
 | ~2026-03-28 | Redesign: light theme, multipage site (research, projects, certifications) |
