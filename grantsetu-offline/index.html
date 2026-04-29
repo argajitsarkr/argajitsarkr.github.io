@@ -72,10 +72,10 @@
   /* ── Hero ─────────────────────────────────────────────────────── */
   .hero{
     position:relative;
-    padding:72px 28px 40px;
+    padding:72px 28px 80px;
     max-width:1180px;margin:0 auto;
-    display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
-    gap:48px;align-items:center;
+    display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+    gap:56px;align-items:start;
   }
   .eyebrow{
     display:inline-block;
@@ -108,68 +108,12 @@
     color:#E9283D;
   }
 
-  /* ── Storm illustration ──────────────────────────────────────── */
-  .storm{
-    position:relative;height:380px;
-    border:2px solid #0A0A0A;border-radius:22px;
-    background:linear-gradient(160deg,#0A0A0A 0%,#1a1f2e 60%,#2a3145 100%);
-    overflow:hidden;
-    box-shadow:10px 10px 0 0 #E9283D;
-  }
-  .cloud{
-    position:absolute;width:140px;height:55px;background:#404a5e;
-    border-radius:50%;top:42px;left:36px;
-    filter:blur(2px);
-    animation:float 8s ease-in-out infinite;
-  }
-  .cloud.c2{width:120px;height:48px;top:80px;left:140px;background:#34394d;animation-delay:-3s;animation-duration:11s}
-  .cloud.c3{width:90px;height:40px;top:30px;left:220px;background:#48536b;animation-delay:-6s;animation-duration:9s}
-  @keyframes float{
-    0%,100%{transform:translateX(0)}
-    50%{transform:translateX(14px)}
-  }
-  .rain{
-    position:absolute;inset:0;pointer-events:none;
-  }
-  .rain span{
-    position:absolute;width:1.5px;background:linear-gradient(transparent,#7a8aa8);
-    height:30px;top:-30px;
-    animation:fall linear infinite;
-    opacity:0.7;
-  }
-  @keyframes fall{
-    to{transform:translateY(440px)}
-  }
-  .lightning{
-    position:absolute;top:55px;left:50%;transform:translateX(-50%);
-    color:#FFD75A;font-weight:900;font-size:64px;
-    line-height:1;
-    animation:flash 5s ease-in-out infinite;
-    text-shadow:0 0 20px rgba(255,215,90,0.6);
-  }
-  @keyframes flash{
-    0%,40%,60%,100%{opacity:0}
-    45%,55%{opacity:1}
-  }
-  .storm-overlay{
-    position:absolute;left:0;right:0;bottom:0;
-    padding:20px 26px;color:#fff;
-    background:linear-gradient(transparent,rgba(0,0,0,0.65));
-    font-size:13px;
-  }
-  .storm-overlay strong{font-size:15px;display:block;margin-bottom:4px;font-weight:700}
-  .storm-overlay span{color:rgba(255,255,255,0.7);font-size:12px}
-
-  /* ── Card with form ──────────────────────────────────────────── */
-  .form-card-wrap{
-    max-width:1180px;margin:0 auto;padding:0 28px 80px;
-  }
+  /* ── Card with form (sits in the hero's right column) ────────── */
   .form-card{
     border:2.5px solid #0A0A0A;border-radius:20px;
-    padding:38px 38px 34px;
+    padding:36px 32px 30px;
     box-shadow:10px 10px 0 0 #E9283D;
     background:#fff;
-    max-width:760px;
   }
   .form-card h2{
     font-size:clamp(24px,2.4vw,32px);
@@ -253,13 +197,11 @@
 
   /* ── Mobile ──────────────────────────────────────────────────── */
   @media(max-width:900px){
-    .hero{grid-template-columns:1fr;padding:48px 22px 28px;gap:36px}
-    .storm{height:280px;box-shadow:7px 7px 0 0 #E9283D}
-    .form-card{padding:30px 26px 26px;box-shadow:7px 7px 0 0 #E9283D}
+    .hero{grid-template-columns:1fr;padding:48px 22px 56px;gap:36px}
+    .form-card{padding:28px 24px 24px;box-shadow:7px 7px 0 0 #E9283D}
     .form-row button{width:100%;justify-content:center}
     .value-grid{grid-template-columns:1fr;gap:14px}
     .value-strip{padding:48px 22px}
-    .form-card-wrap{padding:0 22px 60px}
     .mini-header{padding:14px 22px}
   }
 </style>
@@ -312,22 +254,7 @@
     </div>
   </div>
 
-  <!-- Animated storm illustration (pure SVG/CSS, no images) -->
-  <div class="storm" aria-hidden="true">
-    <div class="cloud"></div>
-    <div class="cloud c2"></div>
-    <div class="cloud c3"></div>
-    <div class="lightning">⚡</div>
-    <div class="rain" id="rain"></div>
-    <div class="storm-overlay">
-      <strong>Tripura, India</strong>
-      <span>Monsoon hits. Server offline. We're handling it.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── Email capture card ────────────────────────────────────── -->
-<section class="form-card-wrap">
+  <!-- Email capture card - sits in the right column where the storm used to be -->
   <div class="form-card">
     <h2>Get pinged when the site is back.</h2>
     <p class="copy">
@@ -387,20 +314,6 @@
 </footer>
 
 <script>
-  // ── Generate rain droplets (40 of them, randomly positioned and timed) ──
-  (function(){
-    var rain = document.getElementById('rain');
-    if (!rain) return;
-    var html = '';
-    for (var i = 0; i < 40; i++) {
-      var left = (Math.random() * 100).toFixed(2);
-      var dur = (0.5 + Math.random() * 0.8).toFixed(2);
-      var delay = (Math.random() * 2).toFixed(2);
-      html += '<span style="left:' + left + '%;animation-duration:' + dur + 's;animation-delay:-' + delay + 's"></span>';
-    }
-    rain.innerHTML = html;
-  })();
-
   // ── "Status update / X minutes ago" - resets every page load ──
   (function(){
     var el = document.getElementById('when');
