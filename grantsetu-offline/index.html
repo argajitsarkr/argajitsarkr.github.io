@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>GrantSetu - briefly offline</title>
+<meta name="description" content="GrantSetu is briefly offline. Drop your email and we'll let you know the moment we're back.">
+<meta property="og:title" content="GrantSetu - briefly offline">
+<meta property="og:description" content="GrantSetu is briefly offline - we'll be back shortly.">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%;background:#fff;color:#0A0A0A}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    display:flex;flex-direction:column;min-height:100vh;
+  }
+  .topbar{height:4px;background:#E9283D}
+  main{
+    flex:1;display:flex;align-items:center;justify-content:center;
+    padding:32px 20px;
+  }
+  .card{
+    width:100%;max-width:580px;
+    border:2px solid #0A0A0A;border-radius:18px;
+    padding:38px 34px;
+    box-shadow:8px 8px 0 0 #E9283D;
+    background:#fff;
+  }
+  .brand{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:800;font-size:18px;letter-spacing:-0.01em;
+    margin-bottom:26px;
+  }
+  .brand-mark{
+    width:32px;height:32px;border-radius:8px;background:#E9283D;
+    display:inline-flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:900;font-size:16px;
+  }
+  .pill{
+    display:inline-block;font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.15em;
+    color:#fff;background:#E9283D;padding:5px 11px;border-radius:999px;
+    margin-bottom:18px;
+  }
+  h1{
+    font-size:31px;line-height:1.08;margin:0 0 14px;
+    letter-spacing:-0.02em;font-weight:800;
+  }
+  p{font-size:15.5px;line-height:1.6;margin:0 0 14px;color:#3a3a3a}
+  p.muted{font-size:13px;color:#6b7280;margin-top:18px}
+  .row{
+    display:flex;gap:8px;margin-top:24px;flex-wrap:wrap;
+  }
+  input[type=email]{
+    flex:1;min-width:0;
+    padding:14px 14px;font-size:15px;
+    border:2px solid #0A0A0A;border-radius:10px;
+    background:#fff;color:#0A0A0A;outline:none;
+    font-family:inherit;
+  }
+  input[type=email]:focus{box-shadow:0 0 0 3px rgba(233,40,61,0.25)}
+  button{
+    padding:14px 22px;font-size:14px;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.08em;
+    border:2px solid #0A0A0A;border-radius:10px;
+    background:#0A0A0A;color:#fff;cursor:pointer;
+    font-family:inherit;transition:transform .08s ease;
+  }
+  button:hover{background:#E9283D;border-color:#E9283D}
+  button:active{transform:translateY(1px)}
+  .links{
+    display:flex;gap:18px;margin-top:26px;flex-wrap:wrap;
+    font-size:13.5px;color:#4b5563;
+  }
+  .links a{color:#0A0A0A;text-decoration:none;border-bottom:1.5px solid #0A0A0A;padding-bottom:1px}
+  .links a:hover{color:#E9283D;border-color:#E9283D}
+  footer{
+    text-align:center;padding:18px;
+    font-size:12px;color:#6b7280;
+    border-top:1px solid #eee;
+  }
+  @media(max-width:520px){
+    .card{padding:28px 22px;box-shadow:6px 6px 0 0 #E9283D}
+    h1{font-size:25px}
+    button{width:100%}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<main>
+  <div class="card">
+    <div class="brand"><span class="brand-mark">G</span> GrantSetu</div>
+    <span class="pill">Briefly offline</span>
+    <h1>We're catching our breath.</h1>
+    <p>The GrantSetu server is recovering from a power cut at our location. We'll be back in a few minutes - usually under an hour.</p>
+    <p>Drop your email and we'll ping you the moment we're back online.</p>
+
+    <!--
+      Buttondown public embed-subscribe form. Posts directly to Buttondown,
+      no backend needed. The hidden "tag" field segments these signups so we
+      can broadcast a "we're back" email only to outage subscribers.
+
+      IMPORTANT: replace `grantsetu` below with the actual Buttondown username
+      if it differs (Buttondown dashboard -> Settings -> Account -> Username).
+    -->
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/grantsetu"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/grantsetu', 'popupwindow')"
+      class="row"
+    >
+      <input type="email" name="email" placeholder="you@university.ac.in" autocomplete="email" required>
+      <input type="hidden" name="tag" value="outage-notify">
+      <button type="submit">Notify me</button>
+    </form>
+
+    <p class="muted">No newsletter spam - one email when the site is back, nothing else. You can unsubscribe in one click.</p>
+
+    <div class="links">
+      <a href="https://twitter.com/grantsetu" rel="noopener">Twitter / X</a>
+      <a href="https://linkedin.com/company/grantsetu" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/argajitsarkr/grantsetu" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</main>
+<footer>GrantSetu - India's grant discovery platform for life sciences &amp; biotech researchers</footer>
+</body>
+</html>
