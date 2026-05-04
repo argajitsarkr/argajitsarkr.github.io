@@ -58,76 +58,90 @@
     <!-- Projects -->
     <section class="section" style="padding-top: 20px;">
         <div class="container">
-            <div class="project-grid">
+            <div class="showcase-list">
 
                 <!-- GrantSetu -->
-                <div class="card project-card fade-in">
-                    <a href="https://grantsetu.in/" target="_blank" rel="noopener noreferrer" class="project-card__banner project-card__banner--green">
-                        <img src="images/projects/grantsetu.png" alt="GrantSetu website screenshot" class="project-card__banner-img" loading="lazy">
-                    </a>
-                    <div class="project-card__body">
-                        <h3 class="project-card__title">GrantSetu</h3>
-                        <p class="project-card__desc">
-                            A centralized platform connecting Indian researchers with relevant government and institutional grant opportunities. GrantSetu aggregates funding information from DST, DBT, ICMR, UGC, CSIR, and other agencies, making it easier to discover, filter, and track research grants - bridging the gap between researchers and funding bodies.
-                        </p>
-                        <div class="project-card__tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Flask</span>
-                            <span class="project-tag">Web Scraping</span>
-                            <span class="project-tag">Database</span>
-                            <span class="project-tag">REST API</span>
+                <article class="showcase fade-in">
+                    <a class="showcase__media" href="https://grantsetu.in/" target="_blank" rel="noopener noreferrer" aria-label="Open GrantSetu in a new tab">
+                        <div class="browser-frame">
+                            <div class="browser-frame__bar">
+                                <span class="browser-dot browser-dot--red"></span>
+                                <span class="browser-dot browser-dot--yellow"></span>
+                                <span class="browser-dot browser-dot--green"></span>
+                                <span class="browser-frame__url">grantsetu.in</span>
+                            </div>
+                            <img src="images/projects/grantsetu.png" alt="GrantSetu homepage screenshot" loading="lazy">
                         </div>
-                        <div class="project-card__links">
-                            <a href="https://grantsetu.in/" target="_blank" rel="noopener noreferrer" class="project-card__link">Visit Site</a>
+                    </a>
+                    <div class="showcase__body">
+                        <span class="showcase__eyebrow">Live Platform</span>
+                        <h3 class="showcase__title">GrantSetu</h3>
+                        <p class="showcase__tagline">India's grant engine for life sciences and biotech.</p>
+                        <p class="showcase__desc">
+                            A centralized platform that connects Indian researchers with relevant government and institutional grant opportunities. GrantSetu aggregates calls from DST, DBT, ICMR, UGC, CSIR and other agencies, with daily updates and curated alerts so researchers stop missing deadlines.
+                        </p>
+                        <ul class="showcase__tags">
+                            <li>Python</li><li>Flask</li><li>Web Scraping</li><li>PostgreSQL</li><li>REST API</li>
+                        </ul>
+                        <div class="showcase__actions">
+                            <a class="hero-link hero-link--primary" href="https://grantsetu.in/" target="_blank" rel="noopener noreferrer">Visit grantsetu.in</a>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- PhytoSynergyDB -->
-                <div class="card project-card fade-in">
-                    <a href="https://hyperacid-maris-umbonate.ngrok-free.dev/" target="_blank" rel="noopener noreferrer" class="project-card__banner project-card__banner--blue">
-                        <img src="images/projects/phytosynergydb.png" alt="PhytoSynergyDB website screenshot" class="project-card__banner-img" loading="lazy">
-                    </a>
-                    <div class="project-card__body">
-                        <h3 class="project-card__title">PhytoSynergyDB</h3>
-                        <p class="project-card__desc">
-                            A curated database of phytochemical-antibiotic synergy data. PhytoSynergyDB catalogs experimentally validated plant-derived compounds that enhance antibiotic efficacy, including FICI values, MIC data, target organisms, and mechanism details - a valuable resource for researchers in antimicrobial resistance and drug discovery.
-                        </p>
-                        <div class="project-card__tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Streamlit</span>
-                            <span class="project-tag">Bioinformatics</span>
-                            <span class="project-tag">Database</span>
-                            <span class="project-tag">AMR</span>
+                <article class="showcase showcase--reverse fade-in">
+                    <a class="showcase__media" href="https://hyperacid-maris-umbonate.ngrok-free.dev/" target="_blank" rel="noopener noreferrer" aria-label="Open PhytoSynergyDB in a new tab">
+                        <div class="browser-frame">
+                            <div class="browser-frame__bar">
+                                <span class="browser-dot browser-dot--red"></span>
+                                <span class="browser-dot browser-dot--yellow"></span>
+                                <span class="browser-dot browser-dot--green"></span>
+                                <span class="browser-frame__url">phytosynergydb</span>
+                            </div>
+                            <img src="images/projects/phytosynergydb.png" alt="PhytoSynergyDB interface screenshot" loading="lazy">
                         </div>
-                        <div class="project-card__links">
-                            <a href="https://hyperacid-maris-umbonate.ngrok-free.dev/" target="_blank" rel="noopener noreferrer" class="project-card__link">Visit Site</a>
+                    </a>
+                    <div class="showcase__body">
+                        <span class="showcase__eyebrow">Research Database</span>
+                        <h3 class="showcase__title">PhytoSynergyDB</h3>
+                        <p class="showcase__tagline">A curated atlas of phytochemical-antibiotic synergies.</p>
+                        <p class="showcase__desc">
+                            Catalogs experimentally validated plant-derived compounds that potentiate antibiotics, with FICI values, MIC data, target organisms and proposed mechanisms. Built as a working resource for AMR research and natural-product drug discovery.
+                        </p>
+                        <ul class="showcase__tags">
+                            <li>Python</li><li>Streamlit</li><li>Bioinformatics</li><li>SQLite</li><li>AMR</li>
+                        </ul>
+                        <div class="showcase__actions">
+                            <a class="hero-link hero-link--primary" href="https://hyperacid-maris-umbonate.ngrok-free.dev/" target="_blank" rel="noopener noreferrer">Open PhytoSynergyDB</a>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- MMILab -->
-                <div class="card project-card fade-in">
-                    <div class="project-card__banner project-card__banner--purple">
-                        <span class="project-card__banner-text">MMILab</span>
+                <article class="showcase fade-in">
+                    <div class="showcase__media">
+                        <div class="showcase__placeholder showcase__placeholder--purple">
+                            <span class="showcase__placeholder-kicker">Tripura University</span>
+                            <span class="showcase__placeholder-title">MMILab</span>
+                            <span class="showcase__placeholder-sub">Molecular Microbiology &amp; Informatics</span>
+                        </div>
                     </div>
-                    <div class="project-card__body">
-                        <h3 class="project-card__title">MMILab Website</h3>
-                        <p class="project-card__desc">
-                            The official website for the Molecular Microbiology & Informatics Laboratory at Tripura University. Features lab member profiles, ongoing research projects, publications, and resources - serving as the digital presence for the lab group and its collaborative work in molecular biology and bioinformatics.
+                    <div class="showcase__body">
+                        <span class="showcase__eyebrow">Lab Website</span>
+                        <h3 class="showcase__title">MMILab</h3>
+                        <p class="showcase__tagline">Digital home of the Molecular Microbiology &amp; Informatics Laboratory.</p>
+                        <p class="showcase__desc">
+                            The official site for the lab at Tripura University - member profiles, ongoing projects, publications, and teaching resources tied together in a fast, responsive layout.
                         </p>
-                        <div class="project-card__tags">
-                            <span class="project-tag">HTML/CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Responsive</span>
-                            <span class="project-tag">Academic</span>
-                        </div>
-                        <div class="project-card__links">
-                            <a href="#" class="project-card__link">Visit Site</a>
-                            <a href="#" class="project-card__link project-card__link--secondary">GitHub</a>
+                        <ul class="showcase__tags">
+                            <li>HTML/CSS</li><li>JavaScript</li><li>Responsive</li><li>Academic</li>
+                        </ul>
+                        <div class="showcase__actions">
+                            <span class="showcase__note">Coming soon</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
             </div>
         </div>
