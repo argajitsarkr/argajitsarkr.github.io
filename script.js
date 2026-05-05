@@ -142,3 +142,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+// ----- Visit & view counters (counterapi.dev) -----
+(function () {
+  const NS = 'argajitsarkr-github-io';
+  const VIEW_KEY = 'pageviews';
+  const VISITOR_KEY = 'visitors';
+  const SESSION_FLAG = 'as_visitor_counted_v1';
+  const fmt = n => Number(n).toLocaleString();
+  const elView = document.getElementById('view-count');
+  const elVisit = document.getElementById('visitor-count');
+  if (!elView && !elVisit) return;
+
+  const hit = (key) =>
+    fetch(`https://api.counterapi.dev/v1/${NS}/${key}/up`, { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status));
+  const get = (key) =>
+    fetch(`https://api.counterapi.dev/v1/${NS}/${key}`, { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status));
+
+  if (elView) {
+    hit(VIEW_KEY)
+      .then(d => { elView.textContent = fmt(d.count); })
+      .catch(() => { elView.textContent = '-'; });
+  }
+  if (elVisit) {
+    const counted = sessionStorage.getItem(SESSION_FLAG);
+    const promise = counted ? get(VISITOR_KEY) : hit(VISITOR_KEY);
+    promise
+      .then(d => {
+        elVisit.textContent = fmt(d.count);
+        if (!counted) sessionStorage.setItem(SESSION_FLAG, '1');
+      })
+      .catch(() => { elVisit.textContent = '-'; });
+  }
+})();
