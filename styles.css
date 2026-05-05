@@ -1887,8 +1887,10 @@ a:hover {
   margin-top: 16px;
   padding: 8px 20px;
   border-radius: 999px;
-  background: #0f172a;
-  color: #f8fafc;
+  background: #ffffff;
+  border: 1px solid var(--border-color, rgba(15,23,42,0.12));
+  box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+  color: #0f172a;
 }
 .live-badge {
   display: inline-flex;
@@ -1920,18 +1922,17 @@ a:hover {
   gap: 6px;
 }
 .visit-counter__value {
-  font-family: ui-monospace, "SF Mono", Menlo, monospace;
   font-weight: 800;
   font-size: 15px;
-  color: #ffffff;
+  color: #0f172a;
 }
 .visit-counter__label {
   font-size: 13px;
   font-weight: 500;
-  color: #94a3b8;
+  color: var(--text-secondary, #475569);
 }
 .visit-counter__sep {
-  color: #475569;
+  color: var(--text-secondary, #94a3b8);
   font-size: 18px;
   line-height: 1;
 }
