@@ -1881,33 +1881,57 @@ a:hover {
    VISIT COUNTERS
    ======================== */
 .visit-counters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   margin-top: 16px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #f8fafc;
+}
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.live-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 6px 2px rgba(239,68,68,0.5);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px 2px rgba(239,68,68,0.5); }
+  50% { opacity: 0.5; box-shadow: 0 0 3px 1px rgba(239,68,68,0.3); }
+}
+.live-badge__text {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ef4444;
 }
 .visit-counter {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: var(--tag-bg, #f1f5f9);
-  border: 1px solid var(--border-color, rgba(15,23,42,0.08));
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-primary, #0f172a);
-}
-.visit-counter__icon { font-size: 14px; line-height: 1; }
-.visit-counter__label {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 11px;
-  color: var(--text-secondary, #64748b);
-  font-weight: 700;
+  gap: 6px;
 }
 .visit-counter__value {
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-weight: 700;
-  color: var(--accent, #2563eb);
+  font-weight: 800;
+  font-size: 15px;
+  color: #ffffff;
+}
+.visit-counter__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+.visit-counter__sep {
+  color: #475569;
+  font-size: 18px;
+  line-height: 1;
 }
