@@ -144,36 +144,39 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ----- Visit & view counters (counterapi.dev) -----
+// Runs on EVERY page of this static site (script.js is loaded site-wide):
+//  - "views"    : one page view per page load, across all pages.
+//  - "visitors" : one unique visitor per browser per 24h (de-duped via localStorage).
+// The numbers are only displayed where the counter elements exist (index.html),
+// but counting happens regardless so direct landings on sub-pages are not lost.
 (function () {
   const NS = 'argajitsarkr-github-io';
   const VIEW_KEY = 'pageviews';
   const VISITOR_KEY = 'visitors';
-  const SESSION_FLAG = 'as_visitor_counted_v1';
+  const VISITOR_FLAG = 'as_visitor_seen_v2';
+  const VISITOR_TTL = 24 * 60 * 60 * 1000; // count a returning browser as a new visitor after 24h
   const fmt = n => Number(n).toLocaleString();
   const elView = document.getElementById('view-count');
   const elVisit = document.getElementById('visitor-count');
-  if (!elView && !elVisit) return;
 
-  const hit = (key) =>
-    fetch(`https://api.counterapi.dev/v1/${NS}/${key}/up`, { cache: 'no-store' })
-      .then(r => r.ok ? r.json() : Promise.reject(r.status));
-  const get = (key) =>
-    fetch(`https://api.counterapi.dev/v1/${NS}/${key}`, { cache: 'no-store' })
+  // Trailing slash on reads avoids counterapi's 301 redirect; "/up" increments.
+  const api = (key, up) =>
+    fetch(`https://api.counterapi.dev/v1/${NS}/${key}${up ? '/up' : '/'}`, { cache: 'no-store' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status));
 
-  if (elView) {
-    hit(VIEW_KEY)
-      .then(d => { elView.textContent = fmt(d.count); })
-      .catch(() => { elView.textContent = '-'; });
-  }
-  if (elVisit) {
-    const counted = sessionStorage.getItem(SESSION_FLAG);
-    const promise = counted ? get(VISITOR_KEY) : hit(VISITOR_KEY);
-    promise
-      .then(d => {
-        elVisit.textContent = fmt(d.count);
-        if (!counted) sessionStorage.setItem(SESSION_FLAG, '1');
-      })
-      .catch(() => { elVisit.textContent = '-'; });
-  }
+  const safeGet = (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const safeSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
+
+  // 1) Page view — always increment, once per page load.
+  api(VIEW_KEY, true)
+    .then(d => { if (elView) elView.textContent = fmt(d.count); })
+    .catch(() => { if (elView) elView.textContent = '—'; });
+
+  // 2) Unique visitor — increment only if this browser hasn't been seen in the TTL window.
+  const last = parseInt(safeGet(VISITOR_FLAG) || '0', 10);
+  const isNewVisitor = !last || (Date.now() - last) > VISITOR_TTL;
+  if (isNewVisitor) safeSet(VISITOR_FLAG, String(Date.now()));
+  api(VISITOR_KEY, isNewVisitor)
+    .then(d => { if (elVisit) elVisit.textContent = fmt(d.count); })
+    .catch(() => { if (elVisit) elVisit.textContent = '—'; });
 })();
