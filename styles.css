@@ -1936,3 +1936,59 @@ a:hover {
   font-size: 18px;
   line-height: 1;
 }
+
+/* ===== Journal-style paper page ===== */
+.container--narrow { max-width: 820px; }
+.paper-header {
+  padding: 110px 0 32px;
+  border-bottom: 1px solid var(--border-base);
+  background: var(--bg-elevated);
+}
+.paper-breadcrumb { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+.paper-breadcrumb a { color: var(--accent-link); text-decoration: none; }
+.paper-breadcrumb a:hover { text-decoration: underline; }
+.paper-type {
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px;
+  font-weight: 700; color: var(--accent-link); margin-bottom: 12px;
+}
+.paper-title {
+  font-size: clamp(26px, 4vw, 38px); line-height: 1.22;
+  color: var(--text-strong); margin: 0 0 20px;
+}
+.paper-authors { font-size: 18px; color: var(--text-strong); margin-bottom: 6px; }
+.paper-authors sup { color: var(--accent-link); }
+.paper-affiliation { font-size: 14px; color: var(--text-muted); font-style: italic; margin-bottom: 18px; }
+.paper-meta-line { font-size: 14px; color: var(--text-body); line-height: 1.7; margin-bottom: 24px; }
+.paper-meta-line a { color: var(--accent-link); text-decoration: none; }
+.paper-meta-line a:hover { text-decoration: underline; }
+.paper-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.paper-license { color: var(--text-muted); }
+.paper-license a { color: var(--accent-link); }
+
+.paper-body { padding: 40px 0 60px; }
+.paper-figure { margin: 0 0 40px; text-align: center; }
+.paper-figure img {
+  max-width: 100%; height: auto; border: 1px solid var(--border-base);
+  border-radius: 12px; background: #fff;
+}
+.paper-figure figcaption { font-size: 13px; color: var(--text-muted); margin-top: 12px; font-style: italic; }
+
+.paper-section { margin-bottom: 38px; }
+.paper-section h2 {
+  font-size: 24px; color: var(--text-strong); margin: 0 0 16px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--accent-primary-dim);
+}
+.paper-section h3 { font-size: 18px; color: var(--text-strong); margin: 22px 0 10px; }
+.paper-section p { font-size: 16px; line-height: 1.75; color: var(--text-body); margin-bottom: 14px; }
+
+.paper-keywords { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.paper-keywords li {
+  background: var(--accent-primary-dim); color: var(--accent-link);
+  font-size: 14px; padding: 6px 14px; border-radius: 999px;
+}
+.paper-cite { background: var(--bg-elevated); border: 1px solid var(--border-base); border-radius: 12px; padding: 24px; }
+.paper-cite-text { font-size: 15px; }
+.paper-cite-text a { color: var(--accent-link); word-break: break-word; }
+.paper-back { margin-top: 30px; }
+.paper-back a { color: var(--accent-link); text-decoration: none; font-weight: 600; }
+.paper-back a:hover { text-decoration: underline; }
