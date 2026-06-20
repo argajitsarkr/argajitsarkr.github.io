@@ -1979,7 +1979,8 @@ a:hover {
   padding-bottom: 8px; border-bottom: 2px solid var(--accent-primary-dim);
 }
 .paper-section h3 { font-size: 18px; color: var(--text-strong); margin: 22px 0 10px; }
-.paper-section p { font-size: 16px; line-height: 1.75; color: var(--text-body); margin-bottom: 14px; }
+.paper-section p { font-size: 16px; line-height: 1.75; color: var(--text-body); margin-bottom: 14px; text-align: justify; text-justify: inter-word; hyphens: auto; }
+.paper-cite-text { text-align: left; }
 
 .paper-keywords { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .paper-keywords li {

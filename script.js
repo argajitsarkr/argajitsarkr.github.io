@@ -167,16 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const safeGet = (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const safeSet = (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} };
 
-  // 1) Page view — always increment, once per page load.
+  // 1) Page view - always increment, once per page load.
   api(VIEW_KEY, true)
     .then(d => { if (elView) elView.textContent = fmt(d.count); })
-    .catch(() => { if (elView) elView.textContent = '—'; });
+    .catch(() => { if (elView) elView.textContent = '-'; });
 
-  // 2) Unique visitor — increment only if this browser hasn't been seen in the TTL window.
+  // 2) Unique visitor - increment only if this browser hasn't been seen in the TTL window.
   const last = parseInt(safeGet(VISITOR_FLAG) || '0', 10);
   const isNewVisitor = !last || (Date.now() - last) > VISITOR_TTL;
   if (isNewVisitor) safeSet(VISITOR_FLAG, String(Date.now()));
   api(VISITOR_KEY, isNewVisitor)
     .then(d => { if (elVisit) elVisit.textContent = fmt(d.count); })
-    .catch(() => { if (elVisit) elVisit.textContent = '—'; });
+    .catch(() => { if (elVisit) elVisit.textContent = '-'; });
 })();

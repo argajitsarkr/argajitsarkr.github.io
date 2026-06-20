@@ -9,7 +9,16 @@
 
 **Site:** [argajitsarkr.github.io](https://argajitsarkr.github.io)
 **Type:** Personal academic portfolio (GitHub Pages, static HTML/CSS/JS)
-**Owner:** Argajit Sarkar — Doctoral Scholar, Tripura University
+**Owner:** Argajit Sarkar - Doctoral Scholar, Tripura University
+
+---
+
+## ✍️ Writing Style — NEVER use em dashes
+
+> **Hard rule:** Never use em dashes (`—`, `&mdash;`) anywhere — not in page copy, headings, alt text, meta descriptions, JSON-LD, commit messages, or this file.
+> If a dash is genuinely required, use a regular hyphen `-` (with spaces around it when it joins clauses, e.g. `June 2026 - Present`).
+> Avoid en dashes (`–`, `&ndash;`) in body copy too; prefer `-`. (Numeric ranges may keep an en dash only if matching existing journal-citation formatting, but `-` is preferred.)
+> When editing existing content, replace any em dashes you encounter with `-`.
 
 ---
 
