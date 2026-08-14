@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume & CV Writing - Argajit Sarkar</title>
+    <meta name="author" content="Argajit Sarkar">
+    <meta name="description" content="Request professional resume, CV, and LinkedIn profile writing for academic, research, and science/tech roles. Send a request and get a quote.">
+    <link rel="canonical" href="https://argajitsarkr.github.io/resume-writing.html">
+    <meta property="og:title" content="Resume & CV Writing - Argajit Sarkar">
+    <meta property="og:description" content="Professional resume, CV, and LinkedIn profile writing for academic, research, and science/tech roles.">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');</script>
+</head>
+<body>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="images/a_logo.png" alt="Logo">
+                <span>Argajit Sarkar</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="free-resources.html">Free Resources</a></li>
+                <li><a href="resume-writing.html">Resume Help</a></li>
+                <li><a href="data/Argajit CV 2026.pdf?v=20260722" target="_blank" class="nav-cta">Download CV</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <span class="icon-sun">&#9728;</span>
+                        <span class="icon-moon">&#9790;</span>
+                    </button>
+                </li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Resume &amp; CV Writing</h1>
+            <p>Professional resumes, academic CVs, and LinkedIn profiles for research, science &amp; tech roles</p>
+        </div>
+    </div>
+
+    <section class="section" style="padding-top: 20px;">
+        <div class="container">
+            <div class="rw-grid fade-in">
+
+                <!-- Info column -->
+                <div class="rw-info">
+                    <div class="card">
+                        <span class="rw-badge">&#9998; Tailored to your field</span>
+                        <h3>What I help with</h3>
+                        <p>As a doctoral researcher who reviews papers and hires-adjacent material, I write documents that read clearly to both academics and industry recruiters. I can help you with:</p>
+                        <ul class="rw-steps" style="counter-reset: none; margin-top: 14px;">
+                            <li style="padding-left: 0;">&bull; Academic CVs (PhD, postdoc, fellowship, faculty)</li>
+                            <li style="padding-left: 0;">&bull; Industry resumes for science, data &amp; tech roles</li>
+                            <li style="padding-left: 0;">&bull; LinkedIn profile rewrites &amp; optimisation</li>
+                            <li style="padding-left: 0;">&bull; Statements of purpose &amp; cover letters</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>How it works</h3>
+                        <ol class="rw-steps">
+                            <li>Send the request form with your goals and target role.</li>
+                            <li>I reply by email with a quote and turnaround time.</li>
+                            <li>You share your existing CV / details once we agree.</li>
+                            <li>You receive a polished draft, then one round of revisions.</li>
+                        </ol>
+                    </div>
+
+                    <div class="card">
+                        <h3>Pricing</h3>
+                        <p>This is a paid service, priced per project depending on the document type and scope. Send a request below and I&rsquo;ll get back to you with a personalised quote &mdash; no obligation.</p>
+                    </div>
+                </div>
+
+                <!-- Form column -->
+                <div class="rw-form-wrap">
+                    <!--
+                        MODE: mailto fallback (works immediately, opens the visitor's email app).
+                        TO ENABLE FORMSPREE later: (1) get your endpoint at https://formspree.io
+                        (2) set action="https://formspree.io/f/XXXX" and method="POST"
+                        (3) delete the id="rw-form" mailto script block at the bottom of this file.
+                    -->
+                    <form class="card rw-form" id="rw-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <input type="hidden" name="_subject" value="New Resume/CV Writing Request">
+                        <!-- Honeypot spam trap: leave empty -->
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="rw-field">
+                            <label for="rw-name">Full name <span class="rw-req">*</span></label>
+                            <input class="rw-input" id="rw-name" type="text" name="name" required placeholder="Your name">
+                        </div>
+
+                        <div class="rw-field">
+                            <label for="rw-email">Email <span class="rw-req">*</span></label>
+                            <input class="rw-input" id="rw-email" type="email" name="email" required placeholder="you@example.com">
+                        </div>
+
+                        <div class="rw-field">
+                            <label for="rw-service">What do you need? <span class="rw-req">*</span></label>
+                            <select class="rw-select" id="rw-service" name="service" required>
+                                <option value="" selected disabled>Select a service</option>
+                                <option>Academic CV</option>
+                                <option>Industry resume</option>
+                                <option>LinkedIn profile rewrite</option>
+                                <option>Cover letter / SOP</option>
+                                <option>Not sure &mdash; need advice</option>
+                            </select>
+                        </div>
+
+                        <div class="rw-field">
+                            <label for="rw-role">Target role or field</label>
+                            <input class="rw-input" id="rw-role" type="text" name="target_role" placeholder="e.g. Bioinformatics postdoc, Data Analyst">
+                        </div>
+
+                        <div class="rw-field">
+                            <label for="rw-link">LinkedIn or current CV link (optional)</label>
+                            <input class="rw-input" id="rw-link" type="url" name="profile_link" placeholder="https://linkedin.com/in/...">
+                        </div>
+
+                        <div class="rw-field">
+                            <label for="rw-message">Tell me about your goals <span class="rw-req">*</span></label>
+                            <textarea class="rw-textarea" id="rw-message" name="message" required placeholder="Where are you applying, your timeline, and anything you'd like me to know."></textarea>
+                        </div>
+
+                        <button class="rw-submit" type="submit">Send Request</button>
+                        <p class="rw-note">Your details go straight to my inbox &mdash; I&rsquo;ll reply with a quote. No files are shared until we agree to work together.</p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Argajit Sarkar <span id="current-year"></span>. North-East, India.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" aria-label="Back to top">&uarr;</button>
+
+    <script src="script.js"></script>
+
+    <!-- Resume form: mailto fallback. Remove this block once Formspree is enabled (see form comment above). -->
+    <script>
+    (function () {
+        var form = document.getElementById('rw-form');
+        if (!form || /formspree\.io\/f\/(?!YOUR_FORM_ID)/.test(form.getAttribute('action'))) return;
+        var RECIPIENT = 'argajit05@gmail.com';
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var g = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
+            var name = g('name'), email = g('email'), service = g('service'),
+                role = g('target_role'), link = g('profile_link'), message = g('message');
+            var subject = 'Resume/CV Request' + (service ? ' - ' + service : '') + (name ? ' (' + name + ')' : '');
+            var body =
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Service: ' + service + '\n' +
+                'Target role/field: ' + role + '\n' +
+                'LinkedIn/CV link: ' + link + '\n\n' +
+                'Goals:\n' + message + '\n';
+            window.location.href = 'mailto:' + RECIPIENT +
+                '?subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+        });
+    })();
+    </script>
+</body>
+</html>

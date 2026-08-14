@@ -1653,6 +1653,167 @@ a.showcase__media:hover {
 }
 
 /* ========================
+   RESUME WRITING SERVICE
+   ======================== */
+.rw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.rw-info .card {
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.rw-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 12px;
+}
+
+.rw-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: rw;
+}
+
+.rw-steps li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 16px;
+  color: var(--text-body);
+}
+
+.rw-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.rw-steps li::before {
+  counter-increment: rw;
+  content: counter(rw);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rw-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--accent-primary-dim);
+  color: var(--accent-primary);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.rw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px;
+}
+
+.rw-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rw-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.rw-field label .rw-req {
+  color: #dc2626;
+}
+
+.rw-input,
+.rw-textarea,
+.rw-select {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text-body);
+  background: var(--bg-base);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.rw-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.rw-input:focus,
+.rw-textarea:focus,
+.rw-select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-primary-dim);
+}
+
+.rw-input::placeholder,
+.rw-textarea::placeholder {
+  color: var(--text-placeholder);
+}
+
+.rw-submit {
+  align-self: flex-start;
+  padding: 13px 28px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--accent-primary);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.rw-submit:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.rw-note {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 820px) {
+  .rw-grid {
+    grid-template-columns: 1fr;
+  }
+  .rw-submit {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+/* ========================
    BACK TO TOP
    ======================== */
 .back-to-top {
