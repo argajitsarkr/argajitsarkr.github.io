@@ -98,12 +98,11 @@
                 <!-- Form column -->
                 <div class="rw-form-wrap">
                     <!--
-                        MODE: mailto fallback (works immediately, opens the visitor's email app).
-                        TO ENABLE FORMSPREE later: (1) get your endpoint at https://formspree.io
-                        (2) set action="https://formspree.io/f/XXXX" and method="POST"
-                        (3) delete the id="rw-form" mailto script block at the bottom of this file.
+                        Requests are submitted via AJAX to Formspree and stored in the
+                        Formspree dashboard (+ emailed). The script at the bottom shows an
+                        inline success message and falls back to email only if the POST fails.
                     -->
-                    <form class="card rw-form" id="rw-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <form class="card rw-form" id="rw-form" action="https://formspree.io/f/mljedvga" method="POST">
                         <input type="hidden" name="_subject" value="New Resume/CV Writing Request">
                         <!-- Honeypot spam trap: leave empty -->
                         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
