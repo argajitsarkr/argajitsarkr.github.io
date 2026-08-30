@@ -229,13 +229,13 @@ html {
 .nav-links a {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 8px 14px;
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 450;
+  letter-spacing: 0;
+  text-transform: none;
   white-space: nowrap;
   border-radius: var(--radius-full);
   transition: color var(--transition-fast), background var(--transition-fast);
@@ -257,13 +257,13 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 20px;
+  padding: 8px 18px;
   background: var(--accent-primary);
   color: #ffffff !important;
-  font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: 0;
   border-radius: var(--radius-full);
   text-decoration: none !important;
   transition: background var(--transition-fast), transform var(--transition-fast);
