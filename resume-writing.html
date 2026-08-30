@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Resume & CV Writing - Argajit Sarkar</title>
     <meta name="author" content="Argajit Sarkar">
     <meta name="description" content="Request professional resume, CV, and LinkedIn profile writing for academic, research, and science/tech roles. Send a request and get a quote.">
@@ -27,7 +27,7 @@
     <nav class="nav">
         <div class="nav-inner">
             <a href="index.html" class="nav-brand">
-                <img src="images/a_logo.png" alt="Logo">
+                <img loading="eager" fetchpriority="high" src="images/a_logo.png" alt="Logo">
                 <span>Argajit Sarkar</span>
             </a>
             <ul class="nav-links">
@@ -71,11 +71,11 @@
                         <span class="rw-badge">&#9998; Tailored to your field</span>
                         <h3>What I help with</h3>
                         <p>As a doctoral researcher who reviews papers and hires-adjacent material, I write documents that read clearly to both academics and industry recruiters. I can help you with:</p>
-                        <ul class="rw-steps" style="counter-reset: none; margin-top: 14px;">
-                            <li style="padding-left: 0;">&bull; Academic CVs (PhD, postdoc, fellowship, faculty)</li>
-                            <li style="padding-left: 0;">&bull; Industry resumes for science, data &amp; tech roles</li>
-                            <li style="padding-left: 0;">&bull; LinkedIn profile rewrites &amp; optimisation</li>
-                            <li style="padding-left: 0;">&bull; Statements of purpose &amp; cover letters</li>
+                        <ul class="rw-list">
+                            <li>Academic CVs (PhD, postdoc, fellowship, faculty)</li>
+                            <li>Industry resumes for science, data &amp; tech roles</li>
+                            <li>LinkedIn profile rewrites &amp; optimisation</li>
+                            <li>Statements of purpose &amp; cover letters</li>
                         </ul>
                     </div>
 
@@ -146,7 +146,8 @@
                         </div>
 
                         <button class="rw-submit" type="submit">Send Request</button>
-                        <p class="rw-note">Your details go straight to my inbox &mdash; I&rsquo;ll reply with a quote. No files are shared until we agree to work together.</p>
+                        <p class="rw-status" id="rw-status" role="status" aria-live="polite" hidden></p>
+                        <p class="rw-note">Your request is saved and sent straight to me &mdash; I&rsquo;ll reply with a quote. Prefer email? Write to <a href="mailto:argajit05@gmail.com">argajit05@gmail.com</a>. No files are shared until we agree to work together.</p>
                     </form>
                 </div>
 
@@ -166,28 +167,93 @@
 
     <script src="script.js"></script>
 
-    <!-- Resume form: mailto fallback. Remove this block once Formspree is enabled (see form comment above). -->
+    <!--
+        Resume request submission.
+        - If the form action is a real Formspree endpoint, requests are submitted
+          via AJAX and STORED in your Formspree dashboard (+ emailed to you),
+          with an inline success message and no page redirect.
+        - Until the endpoint is set, it falls back to opening the visitor's email
+          app so no request is lost, and warns that requests are not yet stored.
+    -->
     <script>
     (function () {
         var form = document.getElementById('rw-form');
-        if (!form || /formspree\.io\/f\/(?!YOUR_FORM_ID)/.test(form.getAttribute('action'))) return;
+        if (!form) return;
+        var statusEl = document.getElementById('rw-status');
+        var submitBtn = form.querySelector('.rw-submit');
         var RECIPIENT = 'argajit05@gmail.com';
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+        var action = form.getAttribute('action') || '';
+        var endpointReady = /formspree\.io\/f\/(?!YOUR_FORM_ID)[A-Za-z0-9]+/.test(action);
+
+        function showStatus(msg, kind) {
+            if (!statusEl) return;
+            statusEl.textContent = msg;
+            statusEl.className = 'rw-status rw-status--' + kind;
+            statusEl.hidden = false;
+        }
+
+        function fieldsToText() {
             var g = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
-            var name = g('name'), email = g('email'), service = g('service'),
-                role = g('target_role'), link = g('profile_link'), message = g('message');
-            var subject = 'Resume/CV Request' + (service ? ' - ' + service : '') + (name ? ' (' + name + ')' : '');
+            return {
+                name: g('name'), email: g('email'), service: g('service'),
+                role: g('target_role'), link: g('profile_link'), message: g('message')
+            };
+        }
+
+        function openMailto() {
+            var d = fieldsToText();
+            var subject = 'Resume/CV Request' + (d.service ? ' - ' + d.service : '') + (d.name ? ' (' + d.name + ')' : '');
             var body =
-                'Name: ' + name + '\n' +
-                'Email: ' + email + '\n' +
-                'Service: ' + service + '\n' +
-                'Target role/field: ' + role + '\n' +
-                'LinkedIn/CV link: ' + link + '\n\n' +
-                'Goals:\n' + message + '\n';
+                'Name: ' + d.name + '\n' +
+                'Email: ' + d.email + '\n' +
+                'Service: ' + d.service + '\n' +
+                'Target role/field: ' + d.role + '\n' +
+                'LinkedIn/CV link: ' + d.link + '\n\n' +
+                'Goals:\n' + d.message + '\n';
             window.location.href = 'mailto:' + RECIPIENT +
                 '?subject=' + encodeURIComponent(subject) +
                 '&body=' + encodeURIComponent(body);
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (form.querySelector('[name="_gotcha"]') && form.querySelector('[name="_gotcha"]').value) return; // spam bot
+
+            // No stored backend configured yet: use email so nothing is lost.
+            if (!endpointReady) {
+                openMailto();
+                showStatus('Opening your email app. (Tip to the site owner: connect Formspree to store requests automatically.)', 'info');
+                return;
+            }
+
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+
+            var originalLabel = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            showStatus('', 'info');
+            statusEl.hidden = true;
+
+            fetch(action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(function (res) {
+                if (res.ok) {
+                    form.reset();
+                    showStatus('Thanks! Your request has been received and saved. I’ll get back to you with a quote soon.', 'success');
+                    submitBtn.textContent = 'Request sent ✓';
+                } else {
+                    return res.json().then(function (data) {
+                        var msg = (data && data.errors && data.errors.map(function (x) { return x.message; }).join(', ')) || 'Something went wrong.';
+                        throw new Error(msg);
+                    });
+                }
+            }).catch(function (err) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalLabel;
+                showStatus('Could not send just now (' + err.message + '). You can email me directly at ' + RECIPIENT + '.', 'error');
+            });
         });
     })();
     </script>

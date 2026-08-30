@@ -2284,3 +2284,130 @@ a:hover {
 }
 .resource-note { margin-top: 32px; font-size: 15px; color: var(--text-muted); }
 .resource-note a { color: var(--accent-link); }
+
+/* ========================
+   MOBILE POLISH & SAFE AREAS
+   ======================== */
+
+/* Respect notch / rounded-corner safe areas on modern phones */
+.nav-inner {
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
+}
+
+.nav-links {
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+.back-to-top {
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+/* Never let long unbreakable strings (DOIs, credential IDs, URLs,
+   emails) push the layout wider than the screen */
+.timeline-item__subtitle,
+.cert-item__credential,
+.featured-pub__citation,
+.pub-card__meta,
+.resource-note,
+.rw-field,
+.footer p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Smooth momentum scrolling inside any scrollable region on iOS */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Honour users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Extra breathing room on very small phones (<=360px) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 14px;
+  }
+  .hero-name {
+    font-size: 30px;
+  }
+  .page-header h1 {
+    font-size: 26px;
+  }
+  .stat-card__number {
+    font-size: 26px;
+  }
+}
+
+/* Resume form submission status messages */
+.rw-status {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  margin: 0;
+}
+.rw-status--success {
+  color: #065f46;
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+}
+.rw-status--error {
+  color: #991b1b;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+}
+.rw-status--info {
+  color: var(--text-body);
+  background: var(--accent-primary-dim);
+  border: 1px solid var(--border-card);
+}
+[data-theme="dark"] .rw-status--success {
+  color: #6ee7b7;
+  background: rgba(6, 95, 70, 0.25);
+  border-color: rgba(110, 231, 183, 0.4);
+}
+[data-theme="dark"] .rw-status--error {
+  color: #fca5a5;
+  background: rgba(153, 27, 27, 0.25);
+  border-color: rgba(252, 165, 165, 0.4);
+}
+
+/* Plain bulleted list for the resume "What I help with" card */
+.rw-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+.rw-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  color: var(--text-body);
+}
+.rw-list li:last-child { margin-bottom: 0; }
+.rw-list li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+}
